@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+/*.. -> volta para a pasta anterior*/
+/* / -> abre a pasta*/
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+/*
+#c5ebd6;  
+#83e1ad;
+#3ddc84;
+#2fa866;
+#1a5c37;
+#063d1e;
+*/
+
+/*pseudo-classe para criar variaveis em CSS.*/
+/*Sempre antes de escrever o nome da variável coloca " -- " */
+:root {
+    --cor1: #c5ebd6;
+    --cor2: #83e1ad;
+    --cor3: #3ddc84;
+    --cor4: #2fa866;
+    --cor5: #1a5c37;
+    --cor6: #063d1e;
+
+    --font-padrao: Arial, helvetica, sans-serif;
+    --font-destaque: 'Bebas Neue', cursive;
+    --font-android: 'Android', cursive;
+}
+
+
+/*Configuração Global -> todos os elementos seguem essa regra. */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor1);
+    font-family: var(--font-padrao);
+}
+
+
+main {
+    padding: 10px;
+    background-color: #ffffff;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.37);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; 
+}
+
+header {
+    background-color: var(--cor5);
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px;
+    background-image: linear-gradient(to bottom, var(--cor3)  , var(--cor4) , var(--cor5) , var(--cor6));
+}
+
+header > h1 {
+    color: #ffffff;
+    font-family: var(--font-destaque) ;
+    margin-bottom: 20px;
+    font-size: 3em;
+    font-weight: normal;
+    /*text-shadow -> cria sombras em letras.*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.37);
+}
+
+header > p {
+    color: #ffffffee;
+    font-family: var(--font-padrao);
+    font-size: 1.2em;
+    max-width: 600px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.37);
+}
+
+nav {
+    background-color: var(--cor6);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.363);
+}
+
+nav > a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+
+    /*transition-duration: (tempo + segundos) -> quando eu passar o mouse por cima do link vai demorar 0.5s para as configurações acontecerem.*/
+    transition-duration: 0.5s;
+}
+
+nav > a:hover {
+    background-color: var(--cor4);
+    color: var(--cor6);
+}
+
+
+/*main p é diferente de main > p, não se usa o "filho" pois o parágrafo p está dentro de outras caixas, assim não usar o "filho" significa que o p está dentro de todos os subníveis (caixas) dentro do main. Assim, a configuração será aplicada para todos os p dentro do  conteúdo principal (main). */
+main p {
+    margin: 17px 0px;
+    text-align: justify;
+    text-indent: 30px;
+
+    /*line-height -> é a altura que existe entre as linhas, o espaço existente entre as linhas.*/
+    line-height: 2em;
+    font-size: 1em;
+    font-family: var(--font-padrao);
+}
+
+main h1 {
+    color: var(--cor6);
+    font-family: var(--font-android);
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2 {
+    color: var(--cor5);
+    font-family: var(--font-android);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right, var(--cor2), transparent );
+    padding-left: 8px;
+}
+
+main strong {
+    color: var(--cor3);
+}
+
+main a {
+    background-color: var(--cor3);
+    color: var(--cor6);
+    padding: 2px 6px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main  img {
+    width: 100%;
+}
+
+img.pequeno {
+    max-width: 350px;
+    /*o img por padrão não é uma caixa, então o margin: auto não funcionaria. Assim, para contornar esa situação, basta tornar o img uma caixa do tipo "block level", utilizando display: block;*/
+    display: block;
+    margin: auto;
+}
+
+a.external::after {
+    content: '\00A0\00A0\1F4CE';
+}
+
+div.video {
+    background-color: var(--cor6);
+    margin: 10px -10px 30px -10px;
+    padding: 20px;
+    padding-bottom: 55%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+} 
+
+aside {
+    background-color: var(--cor2);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.459);
+}
+
+aside > ul {
+    /*list-style-position -> a posição da lista*/
+    /*
+    outside = bolinha do lado de fora.
+    inside = bolinha para o lado de dentro.
+    */
+    list-style-position: inside;
+
+    /*columns -> quantidade de colunas da lista.*/
+    columns: 2;
+
+    /*Para colocar emojis no lugar das bolinhas. Usa-se o código do emoji e o símbolo de "\" antes do número. Não é compatível com todos os navegadores. */
+    list-style-type: '\2714\00A0\00A0';
+    /*00A0 = espaço (distância entre palavras, igual do teclado). Sempre antes do número usar "\", e esse espaço caso você queira coloca-lo na frente do símbolo, basta escreve-lo na frente e se quiser escreve-lo depois do símbolo, basta escrever depois do número.*/
+}
+
+aside > h3 {
+    background-color: var(--cor5);
+    
+    /*Quando o valor do margin é positivo, o conteúdo se espreme para dentro e quando o margin for negativo, o conteúdo se expande para fora.*/
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    padding: 10px;
+}
+
+aside strong {
+    color: var(--cor5);
+}
+
+footer {
+    margin-top: 20px; 
+    background-color: var(--cor6);
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: normal;
+    padding: 5px;
+}
+
+footer a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor2);
+}
+
+footer strong {
+    color: white;
+    font-weight: bold;
+}
